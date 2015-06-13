@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+<script src="http://danzel.github.io/Leaflet.utfgrid/src/leaflet.utfgrid.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+<div id="map" style="height: 500px; width: 100%;background-color: white;"></div>
+
+<script>
+var map = L.map('map').setView([-0.25, 101.900637], 11);
+
+tesso_niloUrl = 'http://service-tms.local-server.link/?token=c622433c904d03ea0276e5132eb09dff4eb47abbe6863b24b9db893bfc62ec9b96600fe342b2c46106eabfb4cad21e1f7e9e6a36556015afbdba92334daff0bf&z={z}&x={x}&y={y}';
+tesso_niloMap = L.tileLayer(tesso_niloUrl);
+tesso_niloMap.addTo(map).bringToFront();
+
+var utfGriddata_kebencanaan_2015_06_14_6188820227 = new L.UtfGrid('http://service-utf.local-server.link/?z={z}&x={x}&y={y}&callback={cb}&token=c622433c904d03ea0276e5132eb09dff4eb47abbe6863b24b9db893bfc62ec9b96600fe342b2c46106eabfb4cad21e1f7e9e6a36556015afbdba92334daff0bf', {
+    resolution: 4
+});
+
+map.addLayer(utfGriddata_kebencanaan_2015_06_14_6188820227);
+
+utfGriddata_kebencanaan_2015_06_14_6188820227.on('mouseover', function (e) {
+    var datapopup = e.data.gid;
+    var popup = L.popup();
+    popup.setLatLng(e.latlng).setContent("You hover at id : " + datapopup).openOn(map);
+
+});
+
+
+</script>
+<!-- -0.079378, 101.608637 -->
+</body>
+</html>

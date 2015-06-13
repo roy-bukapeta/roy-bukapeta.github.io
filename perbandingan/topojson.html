@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="tesso_nilo_min.js"></script>
+
+
+<div id="tesso_nilo" style="height: 500px; width: 100%;background-color: white;"></div>
+
+<script>
+  var map = new Datamap({
+    element: document.getElementById('tesso_nilo'),
+    geographyConfig: {
+      dataUrl: 'tesso_nilo.topojson'
+    },
+    scope: 'clip_hansen_loss_tntn_47s_diss',
+    fills: {
+      defaultFill: '#bada55',
+      tahun2001: '#1a9641',
+      tahun2002: '#48ac4e',
+      tahun2003: '#77c25c',
+      tahun2004: '#a6d96a',
+      tahun2005: '#c3e586',
+      tahun2006: '#e1f2a3',
+      tahun2007: '#ffffc0',
+      tahun2008: '#fee4a0',
+      tahun2009: '#fdc980',
+      tahun2010: '#fdae61',
+      tahun2011: '#f07c4a',
+      tahun2012: '#e34a33',
+      tahun2013: '#d7191c'
+    },
+    data: {
+      1: {fillKey: 'tahun2001'},
+      2: {fillKey: 'tahun2002'},
+      3: {fillKey: 'tahun2003'},
+      4: {fillKey: 'tahun2004'},
+      5: {fillKey: 'tahun2005'},
+      6: {fillKey: 'tahun2006'},
+      7: {fillKey: 'tahun2007'},
+      8: {fillKey: 'tahun2008'},
+      9: {fillKey: 'tahun2009'},
+      10: {fillKey: 'tahun2010'},
+      11: {fillKey: 'tahun2011'},
+      12: {fillKey: 'tahun2012'},
+      13: {fillKey: 'tahun2013'}
+    },
+    setProjection: function(element) {
+      var projection = d3.geo.mercator()
+        .center([101.858637,-0.229378])
+        .scale(100000)
+        .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
+
+       var path = d3.geo.path().projection(projection);
+       return {path: path, projection: projection};
+    }
+  });
+
+</script>
+<!-- -0.079378, 101.608637 -->
+</body>
+</html>
