@@ -7,7 +7,7 @@
 <script src="tesso_nilo_min.js"></script>
 
 
-<div id="tesso_nilo" style="height: 500px; width: 100%;background-color: white;"></div>
+<div id="tesso_nilo" style="height: 350px; width: 100%;background-color: white;"></div>
 
 <script>
   var map = new Datamap({
@@ -50,7 +50,7 @@
     setProjection: function(element) {
       var projection = d3.geo.mercator()
         .center([101.858637,-0.229378])
-        .scale(100000)
+        .scale(70000)
         .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
 
        var path = d3.geo.path().projection(projection);

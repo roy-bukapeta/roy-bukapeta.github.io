@@ -6,10 +6,10 @@
 <script src="http://danzel.github.io/Leaflet.utfgrid/src/leaflet.utfgrid.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 
-<div id="map" style="height: 500px; width: 100%;background-color: white;"></div>
+<div id="map" style="height: 350px; width: 100%;background-color: white;"></div>
 
 <script>
-var map = L.map('map').setView([-0.25, 101.900637], 11);
+var map = L.map('map').setView([-0.25, 101.900637], 10);
 
 tesso_niloUrl = 'http://service-tms.local-server.link/?token=c622433c904d03ea0276e5132eb09dff4eb47abbe6863b24b9db893bfc62ec9b96600fe342b2c46106eabfb4cad21e1f7e9e6a36556015afbdba92334daff0bf&z={z}&x={x}&y={y}';
 tesso_niloMap = L.tileLayer(tesso_niloUrl);
